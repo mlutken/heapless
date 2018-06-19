@@ -52,7 +52,8 @@ function(add_unit_test name link_libs)
                 "${CMAKE_CURRENT_LIST_DIR}/${test_name}.cpp"
         )
 
-        target_link_libraries(${test_name} ${test_link_libraries} ca_gmock gmock gtest_main gtest ${CMAKE_THREAD_LIBS_INIT})
+#         target_link_libraries(${test_name} ${test_link_libraries} heapless_gmock gmock gtest_main gtest ${CMAKE_THREAD_LIBS_INIT})
+        target_link_libraries(${test_name} ${test_link_libraries} gmock gtest_main gtest ${CMAKE_THREAD_LIBS_INIT} stdc++)
 
         add_test(
             NAME ${test_name}
@@ -89,12 +90,23 @@ endfunction()
 # --- Playground functions ---
 # ----------------------------
 function(add_playground_c_exe name link_libs)
-    set (playground_name  ${name}_playground)
+    set (playground_name ${name}_playground)
 
     add_executable(${playground_name} "")
     target_link_libraries(${playground_name} ${link_libs})
     target_sources(${playground_name}
         PRIVATE
             "${CMAKE_CURRENT_LIST_DIR}/${playground_name}.c"
+    )
+endfunction()
+
+function(add_playground_cpp_exe name link_libs)
+    set (playground_name ${name}_playground)
+
+    add_executable(${playground_name} "")
+    target_link_libraries(${playground_name} ${link_libs})
+    target_sources(${playground_name}
+        PRIVATE
+            "${CMAKE_CURRENT_LIST_DIR}/${playground_name}.cpp"
     )
 endfunction()
