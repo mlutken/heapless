@@ -45,7 +45,7 @@ add_compile_options(
 
 
 # --- Add subdirectories ---
-# add_subdirectory(hstl)
+add_subdirectory(hstl)
 
 # --- Add example files ---
 # add_subdirectory(doc/examples)
