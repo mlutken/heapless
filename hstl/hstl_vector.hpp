@@ -2,6 +2,9 @@
 #define HEAPLESS_HSTL_VECTOR_HPP
 
 
+namespace hstl {
+
+}
 
 
 #endif // HEAPLESS_HSTL_VECTOR_HPP
